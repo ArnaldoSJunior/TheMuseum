@@ -85,49 +85,25 @@ fun TheMuseumApp() {
     val navController = rememberNavController()
 
 
+    NavHost(
+        navController = navController,
+        startDestination = Rotas.HomeMenu
 
-             NavHost(
-                navController = navController,
-                startDestination = Rotas.HomeMenu
-
-            ) {
-                composable(Rotas.HomeMenu) { HomeMenu(navController) }
-                composable(Rotas.TelaIngresso) { TelaIngresso(navController)}
-                composable(Rotas.TelaProgramacao) { TelaProgramacao(navController)}
-                composable(Rotas.TelaCardapio) { TelaCardapio(navController) }
-                composable(Rotas.TelaComanda) { TelaComanda(navController) }
-                composable(Rotas.TelaAniversario) { TelaAniversario(navController) }
-                composable(Rotas.TelaGaleria) { TelaGaleria(navController) }
-                composable(Rotas.TelaChapelaria) { TelaChapelaria(navController) }
-                composable(Rotas.TelaAchados) { TelaAchados(navController) }
-                composable(Rotas.TelaFaleConosco) { TelaFaleConosco(navController) }}
-            }
-
-
-
-
-
-@Composable
-fun DrawerContent() {
-    Column(
-        modifier = Modifier
-            .width(300.dp)
-            .background(Color.White)
-            .padding(30.dp)
-            .fillMaxHeight()
     ) {
-        Spacer(modifier = Modifier.height(70.dp))
-        Row (verticalAlignment = Alignment.CenterVertically){
-            Image(
-                painterResource(id= R.drawable.avatar),
-                contentDescription = "Imagem de perfil",
-                modifier = Modifier.size(80.dp))
-            Text(text = "Perfil", fontSize = 30.sp)
-        }
-
-        Text(text = "Logout", fontSize = 20.sp)
-
+        composable(Rotas.HomeMenu) { HomeMenu(navController) }
+        composable(Rotas.TelaIngresso) { TelaIngresso(navController) }
+        composable(Rotas.TelaProgramacao) { TelaProgramacao(navController) }
+        composable(Rotas.TelaCardapio) { TelaCardapio(navController) }
+        composable(Rotas.TelaComanda) { TelaComanda(navController) }
+        composable(Rotas.TelaAniversario) { TelaAniversario(navController) }
+        composable(Rotas.TelaGaleria) { TelaGaleria(navController) }
+        composable(Rotas.TelaChapelaria) { TelaChapelaria(navController) }
+        composable(Rotas.TelaAchados) { TelaAchados(navController) }
+        composable(Rotas.TelaFaleConosco) { TelaFaleConosco(navController) }
     }
 }
+
+
+
 
 
