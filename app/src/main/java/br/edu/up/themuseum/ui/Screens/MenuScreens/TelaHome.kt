@@ -37,6 +37,8 @@ import androidx.navigation.NavController
 import br.edu.up.themuseum.R
 import br.edu.up.themuseum.Rotas
 import br.edu.up.themuseum.ui.Screens.Util.TopBarMinima
+import br.edu.up.themuseum.ui.theme.ModakFont
+import br.edu.up.themuseum.ui.theme.VerdeMostarda
 
 @Composable
  fun HomeMenu( navController: NavController) {
@@ -74,14 +76,15 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(1f),
+                .weight(1f)
+                .background(Color(0xFF7B8373)),
             horizontalArrangement = Arrangement.spacedBy(30.dp, Alignment.CenterHorizontally),
             verticalAlignment = Alignment.Bottom
         ) {
             Box(
                 modifier = Modifier
                     .size(100.dp)
-                    .background(Color.White)
+                    .background(Color(0xFF7B8373))
             ) {
                 IconButton(
                     onClick = { navController.navigate(Rotas.TelaIngresso) },
@@ -91,12 +94,13 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
                         Icon(
                             imageVector = Icons.Default.AddCircle,
                             contentDescription = "Ingresso",
-                            tint = Color.Black,
+                            tint = VerdeMostarda,
                             modifier = Modifier.size(50.dp)
                         )
                         Text(
                             text = "Ingressos",
-                            color = Color.Black,
+                            fontFamily = ModakFont,
+                            color = VerdeMostarda,
                             fontSize = 18.sp
                         )
                     }
@@ -106,7 +110,7 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
             Box(
                 modifier = Modifier
                     .size(100.dp)
-                    .background(Color.White)
+                    .background(Color(0xFF7B8373))
             ) {
                 IconButton(
                     onClick = { navController.navigate(Rotas.TelaProgramacao) },
@@ -116,13 +120,14 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
                         Icon(
                             imageVector = Icons.Default.AddCircle,
                             contentDescription = "Programação",
-                            tint = Color.Black,
+                            tint = VerdeMostarda,
                             modifier = Modifier.size(50.dp)
                         )
                         Text(
                             text = "Programação",
-                            color = Color.Black,
-                            fontSize = 12.sp,
+                            fontFamily = ModakFont,
+                            color = VerdeMostarda,
+                            fontSize = 13.sp,
                         )
                     }
                 }
@@ -131,7 +136,7 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
             Box(
                 modifier = Modifier
                     .size(100.dp)
-                    .background(Color.White)
+                    .background(Color(0xFF7B8373))
             ) {
                 IconButton(
                     onClick = { navController.navigate(Rotas.TelaCardapio) },
@@ -141,12 +146,13 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
                         Icon(
                             imageVector = Icons.Default.AddCircle,
                             contentDescription = "Cardápio",
-                            tint = Color.Black,
+                            tint = VerdeMostarda,
                             modifier = Modifier.size(50.dp)
                         )
                         Text(
                             text = "Cardápio",
-                            color = Color.Black,
+                            fontFamily = ModakFont,
+                            color = VerdeMostarda,
                             fontSize = 12.sp
                         )
                     }
@@ -157,14 +163,15 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(1f),
+                .weight(1f)
+                .background(Color(0xFF7B8373)),
             horizontalArrangement = Arrangement.spacedBy(30.dp, Alignment.CenterHorizontally),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Box(
                 modifier = Modifier
                     .size(100.dp)
-                    .background(Color.White)
+                    .background(Color(0xFF7B8373))
             ) {
                 IconButton(
                     onClick = { navController.navigate(Rotas.TelaComanda) },
@@ -174,12 +181,13 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
                         Icon(
                             imageVector = Icons.Default.AddCircle,
                             contentDescription = "Comanda",
-                            tint = Color.Black,
+                            tint = VerdeMostarda,
                             modifier = Modifier.size(50.dp)
                         )
                         Text(
                             text = "Comanda",
-                            color = Color.Black,
+                            fontFamily = ModakFont,
+                            color = VerdeMostarda,
                             fontSize = 12.sp
                         )
                     }
@@ -189,7 +197,7 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
             Box(
                 modifier = Modifier
                     .size(100.dp)
-                    .background(Color.White)
+                    .background(Color(0xFF7B8373))
             ) {
                 IconButton(
                     onClick = { navController.navigate(Rotas.TelaAniversario) },
@@ -199,12 +207,13 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
                         Icon(
                             imageVector = Icons.Default.AddCircle,
                             contentDescription = "Aniversário",
-                            tint = Color.Black,
+                            tint = VerdeMostarda,
                             modifier = Modifier.size(50.dp)
                         )
                         Text(
                             text = "Aniversário",
-                            color = Color.Black,
+                            fontFamily = ModakFont,
+                            color = VerdeMostarda,
                             fontSize = 12.sp
                         )
                     }
@@ -214,7 +223,7 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
             Box(
                 modifier = Modifier
                     .size(100.dp)
-                    .background(Color.White)
+                    .background(Color(0xFF7B8373))
             ) {
                 IconButton(
                     onClick = { navController.navigate(Rotas.TelaGaleria) },
@@ -224,12 +233,13 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
                         Icon(
                             imageVector = Icons.Default.AddCircle,
                             contentDescription = "Galeria",
-                            tint = Color.Black,
+                            tint = VerdeMostarda,
                             modifier = Modifier.size(50.dp)
                         )
                         Text(
                             text = "Galeria",
-                            color = Color.Black,
+                            fontFamily = ModakFont,
+                            color = VerdeMostarda,
                             fontSize = 12.sp
                         )
                     }
@@ -240,13 +250,14 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(1f),
+                .weight(1f)
+                .background(Color(0xFF7B8373)),
             horizontalArrangement = Arrangement.spacedBy(30.dp, Alignment.CenterHorizontally)
         ) {
             Box(
                 modifier = Modifier
                     .size(100.dp)
-                    .background(Color.White)
+                    .background(Color(0xFF7B8373))
             ) {
                 IconButton(
                     onClick = { navController.navigate(Rotas.TelaChapelaria) },
@@ -256,12 +267,13 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
                         Icon(
                             imageVector = Icons.Default.AddCircle,
                             contentDescription = "Chapelaria",
-                            tint = Color.Black,
+                            tint = VerdeMostarda,
                             modifier = Modifier.size(50.dp)
                         )
                         Text(
                             text = "Chapelaria",
-                            color = Color.Black,
+                            fontFamily = ModakFont,
+                            color = VerdeMostarda,
                             fontSize = 12.sp
                         )
                     }
@@ -271,7 +283,7 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
             Box(
                 modifier = Modifier
                     .size(100.dp)
-                    .background(Color.White)
+                    .background(Color(0xFF7B8373))
             ) {
                 IconButton(
                     onClick = { navController.navigate(Rotas.TelaAchados) },
@@ -281,12 +293,13 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
                         Icon(
                             imageVector = Icons.Default.AddCircle,
                             contentDescription = "Achados",
-                            tint = Color.Black,
+                            tint = VerdeMostarda,
                             modifier = Modifier.size(50.dp)
                         )
                         Text(
                             text = "Achados & Perdidos",
-                            color = Color.Black,
+                            fontFamily = ModakFont,
+                            color = VerdeMostarda,
                             fontSize = 12.sp
                         )
                     }
@@ -296,7 +309,7 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
             Box(
                 modifier = Modifier
                     .size(100.dp)
-                    .background(Color.White)
+                    .background(Color(0xFF7B8373))
             ) {
                 IconButton(
                     onClick = { navController.navigate(Rotas.TelaFaleConosco) },
@@ -306,12 +319,13 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
                         Icon(
                             imageVector = Icons.Default.AddCircle,
                             contentDescription = "Fale Conosco",
-                            tint = Color.Black,
+                            tint = VerdeMostarda,
                             modifier = Modifier.size(50.dp)
                         )
                         Text(
                             text = "Fale Conosco",
-                            color = Color.Black,
+                            fontFamily = ModakFont,
+                            color = VerdeMostarda,
                             fontSize = 12.sp
                         )
                     }
@@ -326,7 +340,7 @@ fun DrawerContent() {
     Column(
         modifier = Modifier
             .width(300.dp)
-            .background(Color(0x7E3F51B5))
+            .background(Color(0x77CEC8C8))
             .padding(30.dp)
             .fillMaxHeight()
     ) {
