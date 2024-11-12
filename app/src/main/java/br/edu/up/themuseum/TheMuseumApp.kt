@@ -7,6 +7,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.edu.up.themuseum.ui.Screens.MenuScreens.HomeMenu
+import br.edu.up.themuseum.ui.Screens.MenuScreens.Ingresso.TelaIngresso
+import br.edu.up.themuseum.ui.Screens.MenuScreens.Ingresso.TelaPagamentoIngresso
+import br.edu.up.themuseum.ui.Screens.MenuScreens.Ingresso.TelaPedidos
 import br.edu.up.themuseum.ui.Screens.MenuScreens.TelaAchados
 import br.edu.up.themuseum.ui.Screens.MenuScreens.TelaAniversario
 import br.edu.up.themuseum.ui.Screens.MenuScreens.TelaCardapio
@@ -14,7 +17,6 @@ import br.edu.up.themuseum.ui.Screens.MenuScreens.TelaChapelaria
 import br.edu.up.themuseum.ui.Screens.MenuScreens.TelaComanda
 import br.edu.up.themuseum.ui.Screens.MenuScreens.TelaFaleConosco
 import br.edu.up.themuseum.ui.Screens.MenuScreens.TelaGaleria
-import br.edu.up.themuseum.ui.Screens.MenuScreens.TelaIngresso
 import br.edu.up.themuseum.ui.Screens.MenuScreens.TelaProgramacao
 
 
@@ -29,6 +31,9 @@ object Rotas {
     const val TelaChapelaria = "tela_chapelaria"
     const val TelaAchados = "tela_achados"
     const val TelaFaleConosco = "tela_fale_conosco"
+    const  val TELA_INGRESSO = "ingresso"
+    const val TELA_PEDIDO = "pedido"
+    const val TELA_PAGAMENTO = "pagamento"
 }
 
 
@@ -56,6 +61,9 @@ fun TheMuseumApp() {
         composable(Rotas.TelaChapelaria) { TelaChapelaria(navController) }
         composable(Rotas.TelaAchados) { TelaAchados(navController) }
         composable(Rotas.TelaFaleConosco) { TelaFaleConosco(navController) }
+        composable(Rotas.TELA_PEDIDO) { TelaPedidos(navController)}
+        composable(Rotas.TELA_PAGAMENTO) { TelaPagamentoIngresso(navController) }
+        composable(Rotas.TELA_INGRESSO) { TelaIngresso( navController) }
     }
 }
 

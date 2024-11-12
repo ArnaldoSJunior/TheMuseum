@@ -346,11 +346,7 @@ fun DrawerContent() {
     ) {
         Spacer(modifier = Modifier.height(70.dp))
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Image(
-                painterResource(id = R.drawable.avatar),
-                contentDescription = "Imagem de perfil",
-                modifier = Modifier.size(80.dp)
-            )
+
             Text(text = "Perfil", fontSize = 30.sp)
         }
 

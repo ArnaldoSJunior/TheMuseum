@@ -1,28 +1,29 @@
-package br.edu.up.themuseum.ui.Screens.MenuScreens
+package br.edu.up.themuseum.ui.Screens.MenuScreens.Ingresso
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Text
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import br.edu.up.themuseum.ui.Screens.Util.BottomBar
 import br.edu.up.themuseum.ui.Screens.Util.TopBarTelas
-import br.edu.up.themuseum.ui.theme.VerdeMostarda
-
 
 @Composable
-fun TelaIngresso(navController: NavController) {
+fun TelaPagamentoIngresso(navController: NavController){
+
     Scaffold(
         topBar = { TopBarTelas(navController) },
+        bottomBar = { BottomBar(navController) },
         content = { paddingValues ->
             Column(modifier = Modifier.padding(paddingValues)) {
-                Text(text = "Ingressos",
-                    color = VerdeMostarda,
-                    fontSize = 30.sp)
+                androidx.compose.material3.Text(text = "Pagamento", fontSize = 30.sp)
             }
         }
+
     )
+
 }

@@ -17,23 +17,29 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import br.edu.up.themuseum.Rotas
+import br.edu.up.themuseum.ui.theme.Caqui
+import br.edu.up.themuseum.ui.theme.ModakFont
+import br.edu.up.themuseum.ui.theme.PretoMostarda
+import br.edu.up.themuseum.ui.theme.Verde
 
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
 fun TopBarTelas(navController: NavController) {
+
     val coroutineScope = rememberCoroutineScope()
 
     TopAppBar(
         navigationIcon = {
             IconButton(onClick = {
-                navController.popBackStack()
+                navController.navigate(Rotas.HomeMenu)
             }) {
                 Icon(
                     imageVector = Icons.Default.ArrowBack,
                     contentDescription = "Voltar",
-                    tint = Color.White,
-                    modifier = Modifier.size(30.dp)
+                    tint = Verde,
+                    modifier = Modifier.size(40.dp)
                 )
             }
         },
@@ -41,10 +47,11 @@ fun TopBarTelas(navController: NavController) {
             Text(
                 text = "THEMuseum",
                 fontSize = 40.sp,
-                color = Color.White,
+                color = Caqui,
+                fontFamily = ModakFont,
                 fontWeight = FontWeight(600)
             )
         },
-        colors = TopAppBarDefaults.topAppBarColors(Color.Black)
+        colors = TopAppBarDefaults.topAppBarColors(PretoMostarda)
     )
 }
