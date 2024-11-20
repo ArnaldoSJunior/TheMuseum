@@ -19,12 +19,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
+import br.edu.up.themuseum.data.Dao.PedidosDao
 import br.edu.up.themuseum.ui.Screens.Util.BottomBar
 import br.edu.up.themuseum.ui.Screens.Util.TopBarTelas
+import br.edu.up.themuseum.ui.ViewModel.PedidosViewModel
 
 @Composable
-fun TelaIngresso( navController: NavController) {
+fun TelaIngresso(
+    viewModel: PedidosViewModel,
+    navController: NavController) {
 
     val currentScreen = remember { mutableStateOf("TelaIngresso") }
     Scaffold(
@@ -32,7 +37,7 @@ fun TelaIngresso( navController: NavController) {
         bottomBar = {BottomBar(navController)},
         content = { paddingValues ->
             Column(modifier = Modifier.padding(paddingValues)) {
-                CardComFormulario(navController,currentScreen)
+                CardComFormulario(viewModel,navController,currentScreen)
             }
         }
     )
@@ -41,7 +46,7 @@ fun TelaIngresso( navController: NavController) {
 
 
 @Composable
-fun CardComFormulario(navController: NavController, currentScreen: MutableState<String>) {
+fun CardComFormulario(viewModel: PedidosViewModel,navController: NavController, currentScreen: MutableState<String>) {
     var exibirFormulario by remember { mutableStateOf(false) }
 
     // Card Clicável
@@ -63,7 +68,7 @@ fun CardComFormulario(navController: NavController, currentScreen: MutableState<
 
     // Formulário exibido ao clicar no Card
     if (exibirFormulario) {
-        NovosPedidos(navController = navController, onCancelar = { exibirFormulario = false })
+        NovosPedidos( navController = navController, viewModel = viewModel ,  onCancelar = { exibirFormulario = false })
     }
 }
 

@@ -25,34 +25,46 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import br.edu.up.themuseum.Rotas
+import br.edu.up.themuseum.data.Dao.PedidosDataBase.Companion.abrirBancoDeDados
+
 import br.edu.up.themuseum.data.Models.Pedidos
-import br.edu.up.themuseum.data.abrirBancoDeDados
+import br.edu.up.themuseum.ui.Rotas
+import br.edu.up.themuseum.ui.ViewModel.PedidosViewModel
 import kotlinx.coroutines.launch
 
 
-
 @Composable
-fun NovosPedidos(navController: NavController, onCancelar: () -> Unit){
+fun NovosPedidos(
+    PedidoId: Int? = null,
+    navController: NavController,
+    viewModel: PedidosViewModel, onCancelar: () -> Unit){
 
     val context = LocalContext.current
     val db = abrirBancoDeDados(context)
     var courotineScope = rememberCoroutineScope()
 
-    var pedidos by remember { mutableStateOf(listOf<Pedidos>()) }
+    var pedidos:Pedidos? by remember { mutableStateOf(null) }
     var nome by remember { mutableStateOf("") }
-    var cpf by remember { mutableStateOf("") }
+   var cpf by remember { mutableStateOf("") }
     var tel by remember { mutableStateOf("") }
 
     LaunchedEffect(Unit){
-        courotineScope.launch {
-            if(db.PedidosDao().listarPedidos().isEmpty()){
-                db.PedidosDao().gravarPedido(
-                    Pedidos(nome="Arnaldo", cpf = "08529100964", tel = "99650232")
-                )
-            }
-            pedidos = db.PedidosDao().listarPedidos()
+       courotineScope.launch {
 
+        }
+    }
+
+
+    LaunchedEffect(PedidoId) {
+        courotineScope.launch {
+            if(PedidoId != null ){
+                pedidos = viewModel.buscarPedidoPorId(PedidoId)
+                pedidos?.let {
+                    nome= it.nome;
+                    cpf= it.cpf;
+                    tel= it.tel
+                }
+            }
         }
     }
 
@@ -107,9 +119,8 @@ fun NovosPedidos(navController: NavController, onCancelar: () -> Unit){
                         cpf = cpf,
                         tel = tel
                     )
-                    db.PedidosDao().gravarPedido(novoPedido)
-                    pedidos = db.PedidosDao().listarPedidos()
-                    navController.navigate(Rotas.TELA_PEDIDO)
+                    viewModel.gravar(novoPedido)
+                    navController.navigate(Rotas.listar_pedidos)
                 }
             }) {
                 Text(text = "Salvar", fontSize = 20.sp)
@@ -117,7 +128,7 @@ fun NovosPedidos(navController: NavController, onCancelar: () -> Unit){
             Spacer(modifier = Modifier.height(30.dp))
 
 
-           
+
             Button(onClick = onCancelar) {
                 Text("Cancelar")
             }

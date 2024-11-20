@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import br.edu.up.themuseum.Rotas
+import br.edu.up.themuseum.ui.Rotas
 import br.edu.up.themuseum.ui.theme.VerdeMostarda
 
 
@@ -38,7 +38,7 @@ fun BottomBar(navController: NavController) {
         NavigationBarItem(
             selected = false,
             onClick = {
-                navController.navigate(Rotas.TELA_PEDIDO)
+                navController.navigate(Rotas.listar_pedidos)
             },
             icon = {
                 Icon(
