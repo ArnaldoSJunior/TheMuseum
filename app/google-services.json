@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "376267796442",
+    "project_id": "themuseum-362be",
+    "storage_bucket": "themuseum-362be.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376267796442:android:b0367cfa243dab81c5dae3",
+        "android_client_info": {
+          "package_name": "br.edu.up.themuseum"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVrHV1PB3QzmJna-yfZZJvUmPZgLjlEFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

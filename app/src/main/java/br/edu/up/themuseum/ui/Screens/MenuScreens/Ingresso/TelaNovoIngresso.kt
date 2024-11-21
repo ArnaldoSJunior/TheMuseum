@@ -25,7 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import br.edu.up.themuseum.data.Dao.PedidosDataBase.Companion.abrirBancoDeDados
+import br.edu.up.themuseum.data.DataBase.PedidosDataBase.Companion.abrirBancoDeDados
 
 import br.edu.up.themuseum.data.Models.Pedidos
 import br.edu.up.themuseum.ui.Rotas

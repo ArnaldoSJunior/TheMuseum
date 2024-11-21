@@ -7,9 +7,12 @@ import androidx.room.PrimaryKey
 data class Pedidos(
 
     @PrimaryKey(autoGenerate = true)
-    val id: Int? = null,
+    var id: Int? = null,
     val nome : String,
     val cpf: String,
     val tel: String
 
-)
+){
+    constructor(): this(null,"","","")
+}
+

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.edu.up.themuseum.data.Dao.PedidosDao
 import br.edu.up.themuseum.data.Models.Pedidos
+import br.edu.up.themuseum.data.Repository.IRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,33 +13,15 @@ import kotlinx.coroutines.withContext
 import kotlinx.coroutines.flow.collectLatest
 
 class PedidosViewModel(
-    private val dao : PedidosDao
+    private val repository: IRepository
 ) : ViewModel(){
-
-    fun excluir(pedido: Pedidos){
-        viewModelScope.launch {
-            dao.excluirPedido(pedido)
-        }
-    }
-
-    fun gravar(pedido: Pedidos){
-        viewModelScope.launch{
-            dao.gravarPedido(pedido)
-        }
-    }
-
-    suspend fun buscarPedidoPorId(PedidoId: Int): Pedidos?{
-        return withContext(Dispatchers.IO){
-            dao.buscarPedidoPorId(PedidoId)
-        }
-    }
 
     private val _pedidos = MutableStateFlow<List<Pedidos>>(emptyList())
     val pedidos: StateFlow<List<Pedidos>> get () = _pedidos
 
     init {
         viewModelScope.launch {
-            dao.listarPedidos().collectLatest { listaDePedidos ->
+            repository.listarPedidos().collectLatest { listaDePedidos ->
                 _pedidos.value = listaDePedidos
 
             }
@@ -46,14 +29,30 @@ class PedidosViewModel(
 
     }
 
+    fun excluir(pedidos: Pedidos){
+        viewModelScope.launch {
+            repository.excluirPedido(pedidos)
+        }
+    }
+
+
+    suspend fun buscarPedidoPorId(pedidoId: Int): Pedidos?{
+        return withContext(Dispatchers.IO){
+            repository.buscarPedidoPorId(pedidoId)
+        }
+    }
+
+    fun gravar(pedidos: Pedidos){
+        viewModelScope.launch{
+            repository.gravarPedido(pedidos)
+        }
+    }
+
+
 
 
 
 }
-
-
-
-
 
 
 
