@@ -1,6 +1,8 @@
 package br.edu.up.themuseum.ui.Screens.Util
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Edit
@@ -11,59 +13,94 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.compose.currentBackStackEntryAsState
+import br.edu.up.themuseum.R
 import br.edu.up.themuseum.ui.Rotas
+import br.edu.up.themuseum.ui.theme.PretoMostarda
+import br.edu.up.themuseum.ui.theme.Verde
+import br.edu.up.themuseum.ui.theme.VerdeMenta
 import br.edu.up.themuseum.ui.theme.VerdeMostarda
+import br.edu.up.themuseum.ui.theme.VerdeMusgo
 
 
 @Composable
 fun BottomBar(navController: NavController) {
 
+    val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route ?: ""
+
     NavigationBar(containerColor = Color(0xFF7B8373)) {
+
+
         NavigationBarItem(
-            selected = true,
+            selected = currentRoute == Rotas.TELA_INGRESSO,
             onClick = {
-                navController.navigate(Rotas.TELA_INGRESSO)
+                navController.navigate(Rotas.TELA_INGRESSO) {
+
+                    popUpTo(Rotas.TELA_INGRESSO) { inclusive = true }
+                }
             },
             icon = {
-                androidx.compose.material3.Icon(
-                    imageVector = Icons.Default.ShoppingCart,
-                    contentDescription = "A",
-                    modifier = Modifier.size(40.dp)
+                Image(
+                    painter = painterResource(id = R.drawable.bilhetes),
+                    contentDescription = "ingresso",
+                    modifier = Modifier.size(50.dp),
+                    colorFilter = ColorFilter.tint(
+                        if (currentRoute == Rotas.TELA_INGRESSO)VerdeMenta  else PretoMostarda
+                    )
                 )
             },
-            label = { Text(text = "Ingressos") }
         )
+
+
         NavigationBarItem(
-            selected = false,
+            selected = currentRoute == Rotas.listar_pedidos,
             onClick = {
-                navController.navigate(Rotas.listar_pedidos)
+                navController.navigate(Rotas.listar_pedidos) {
+
+                    popUpTo(Rotas.listar_pedidos) { inclusive = true }
+                }
             },
             icon = {
-                Icon(
-                    imageVector = Icons.Default.Edit,
-                    contentDescription = "B",
-                    modifier = Modifier.size(40.dp)
+                Image(
+                    painter = painterResource(id = R.drawable.pedido),
+                    contentDescription = "pedido",
+                    modifier = Modifier.size(50.dp),
+                    colorFilter = ColorFilter.tint(
+                        if (currentRoute == Rotas.listar_pedidos) VerdeMenta else PretoMostarda
+                    )
                 )
             },
-            label = { Text(text = "Pedidos") }
         )
-        NavigationBarItem( 
-            selected = false,
+
+
+        NavigationBarItem(
+            selected = currentRoute == Rotas.TELA_PAGAMENTO,
             onClick = {
-                navController.navigate(Rotas.TELA_PAGAMENTO)
+                navController.navigate(Rotas.TELA_PAGAMENTO) {
+
+                    popUpTo(Rotas.TELA_PAGAMENTO) { inclusive = true }
+                }
             },
             icon = {
-                Icon(
-                    imageVector = Icons.Default.ShoppingCart,
-                    contentDescription = "Pagamento",
-                    modifier = Modifier.size(40.dp),
-                    tint = VerdeMostarda
+                Image(
+                    painter = painterResource(id = R.drawable.pagamento),
+                    contentDescription = "pagamento",
+                    modifier = Modifier.size(50.dp),
+                    colorFilter = ColorFilter.tint(
+                        if (currentRoute == Rotas.TELA_PAGAMENTO) VerdeMenta else PretoMostarda
+                    )
                 )
             },
-            label = { Text(text = "Pagamento", color = Color.Magenta) }
         )
     }
+
+
+    Divider(color = VerdeMenta, thickness = 1.dp)
 }
+
+
 

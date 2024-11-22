@@ -1,5 +1,6 @@
 package br.edu.up.themuseum.ui.Screens.MenuScreens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -27,13 +28,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import br.edu.up.themuseum.R
 
 import br.edu.up.themuseum.ui.Rotas
 import br.edu.up.themuseum.ui.Screens.Util.TopBarMinima
 import br.edu.up.themuseum.ui.theme.ModakFont
+import br.edu.up.themuseum.ui.theme.PretoMostarda
+import br.edu.up.themuseum.ui.theme.VerdeMenta
 import br.edu.up.themuseum.ui.theme.VerdeMostarda
 
 @Composable
@@ -63,6 +68,8 @@ import br.edu.up.themuseum.ui.theme.VerdeMostarda
 
 @Composable
 private fun ConteudoPrincipal(navController: NavController, paddingValues: PaddingValues) {
+
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -87,11 +94,12 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
                     modifier = Modifier.fillMaxSize()
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon(
-                            imageVector = Icons.Default.AddCircle,
-                            contentDescription = "Ingresso",
-                            tint = VerdeMostarda,
-                            modifier = Modifier.size(50.dp)
+                        Image(
+                            painter = painterResource(id = R.drawable.bilhetes),
+                            contentDescription = "ingressos",
+                            modifier = Modifier.size(50.dp) ,
+                            colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(VerdeMenta)
+
                         )
                         Text(
                             text = "Ingressos",
@@ -113,11 +121,12 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
                     modifier = Modifier.fillMaxSize()
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon(
-                            imageVector = Icons.Default.AddCircle,
-                            contentDescription = "Programação",
-                            tint = VerdeMostarda,
-                            modifier = Modifier.size(50.dp)
+                        Image(
+                            painter = painterResource(id = R.drawable.programacao),
+                            contentDescription = "programacao",
+                            modifier = Modifier.size(50.dp) ,
+                            colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(VerdeMenta)
+
                         )
                         Text(
                             text = "Programação",
@@ -139,11 +148,12 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
                     modifier = Modifier.fillMaxSize()
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon(
-                            imageVector = Icons.Default.AddCircle,
-                            contentDescription = "Cardápio",
-                            tint = VerdeMostarda,
-                            modifier = Modifier.size(50.dp)
+                        Image(
+                            painter = painterResource(id = R.drawable.cardapios),
+                            contentDescription = "cardapio",
+                            modifier = Modifier.size(50.dp) ,
+                            colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(VerdeMenta)
+
                         )
                         Text(
                             text = "Cardápio",
@@ -174,11 +184,12 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
                     modifier = Modifier.fillMaxSize()
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon(
-                            imageVector = Icons.Default.AddCircle,
-                            contentDescription = "Comanda",
-                            tint = VerdeMostarda,
-                            modifier = Modifier.size(50.dp)
+                        Image(
+                            painter = painterResource(id = R.drawable.comanda),
+                            contentDescription = "comanda",
+                            modifier = Modifier.size(50.dp) ,
+                            colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(VerdeMenta)
+
                         )
                         Text(
                             text = "Comanda",
@@ -200,11 +211,12 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
                     modifier = Modifier.fillMaxSize()
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon(
-                            imageVector = Icons.Default.AddCircle,
-                            contentDescription = "Aniversário",
-                            tint = VerdeMostarda,
-                            modifier = Modifier.size(50.dp)
+                        Image(
+                            painter = painterResource(id = R.drawable.niver),
+                            contentDescription = "aniversario",
+                            modifier = Modifier.size(50.dp) ,
+                            colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(VerdeMenta)
+
                         )
                         Text(
                             text = "Aniversário",
@@ -226,11 +238,12 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
                     modifier = Modifier.fillMaxSize()
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon(
-                            imageVector = Icons.Default.AddCircle,
-                            contentDescription = "Galeria",
-                            tint = VerdeMostarda,
-                            modifier = Modifier.size(50.dp)
+                        Image(
+                            painter = painterResource(id = R.drawable.galeria),
+                            contentDescription = "galeria",
+                            modifier = Modifier.size(50.dp) ,
+                            colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(VerdeMenta)
+
                         )
                         Text(
                             text = "Galeria",
@@ -260,11 +273,12 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
                     modifier = Modifier.fillMaxSize()
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon(
-                            imageVector = Icons.Default.AddCircle,
-                            contentDescription = "Chapelaria",
-                            tint = VerdeMostarda,
-                            modifier = Modifier.size(50.dp)
+                        Image(
+                            painter = painterResource(id = R.drawable.chapelaria),
+                            contentDescription = "chapelaria",
+                            modifier = Modifier.size(50.dp) ,
+                            colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(VerdeMenta)
+
                         )
                         Text(
                             text = "Chapelaria",
@@ -286,11 +300,12 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
                     modifier = Modifier.fillMaxSize()
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon(
-                            imageVector = Icons.Default.AddCircle,
-                            contentDescription = "Achados",
-                            tint = VerdeMostarda,
-                            modifier = Modifier.size(50.dp)
+                        Image(
+                            painter = painterResource(id = R.drawable.achadoseperdidos),
+                            contentDescription = "achados e perdidos",
+                            modifier = Modifier.size(50.dp) ,
+                            colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(VerdeMenta)
+
                         )
                         Text(
                             text = "Achados & Perdidos",
@@ -312,11 +327,12 @@ private fun ConteudoPrincipal(navController: NavController, paddingValues: Paddi
                     modifier = Modifier.fillMaxSize()
                 ) {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon(
-                            imageVector = Icons.Default.AddCircle,
-                            contentDescription = "Fale Conosco",
-                            tint = VerdeMostarda,
-                            modifier = Modifier.size(50.dp)
+                        Image(
+                            painter = painterResource(id = R.drawable.falando),
+                            contentDescription = "fale conosco",
+                            modifier = Modifier.size(50.dp) ,
+                            colorFilter = androidx.compose.ui.graphics.ColorFilter.tint(VerdeMenta)
+
                         )
                         Text(
                             text = "Fale Conosco",

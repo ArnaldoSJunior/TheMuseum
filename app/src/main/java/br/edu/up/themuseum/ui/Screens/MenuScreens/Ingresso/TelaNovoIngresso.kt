@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.OutlinedTextField
@@ -30,6 +31,14 @@ import br.edu.up.themuseum.data.DataBase.PedidosDataBase.Companion.abrirBancoDeD
 import br.edu.up.themuseum.data.Models.Pedidos
 import br.edu.up.themuseum.ui.Rotas
 import br.edu.up.themuseum.ui.ViewModel.PedidosViewModel
+import br.edu.up.themuseum.ui.theme.Caqui
+import br.edu.up.themuseum.ui.theme.Laranja
+import br.edu.up.themuseum.ui.theme.ModakFont
+import br.edu.up.themuseum.ui.theme.PretoMostarda
+import br.edu.up.themuseum.ui.theme.VerdeMenta
+import br.edu.up.themuseum.ui.theme.VerdeMostarda
+import br.edu.up.themuseum.ui.theme.VerdeMusgo
+import br.edu.up.themuseum.ui.theme.Vinho
 import kotlinx.coroutines.launch
 
 
@@ -73,9 +82,9 @@ fun NovosPedidos(
             .fillMaxWidth()
             .padding(13.dp),
         elevation = CardDefaults.cardElevation(4.dp),
-        shape = RoundedCornerShape(10.dp), // Bordas arredondadas
+        shape = RoundedCornerShape(10.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFFF5F5F5) // Cor de fundo do Card
+            containerColor = VerdeMenta
         )
     ) {
 
@@ -90,7 +99,9 @@ fun NovosPedidos(
             Text(
                 text = "Novo Pedido",
                 fontSize = 30.sp,
-                fontWeight = FontWeight.ExtraBold
+                fontWeight = FontWeight.ExtraBold,
+                color = PretoMostarda
+
             )
             Spacer(modifier = Modifier.height(10.dp))
             OutlinedTextField(
@@ -122,14 +133,19 @@ fun NovosPedidos(
                     viewModel.gravar(novoPedido)
                     navController.navigate(Rotas.listar_pedidos)
                 }
-            }) {
-                Text(text = "Salvar", fontSize = 20.sp)
+            },colors = ButtonDefaults.buttonColors(
+                containerColor = Laranja,
+                contentColor = PretoMostarda
+            ))
+            {
+                Text(text = "Adicionar", fontSize = 20.sp)
             }
-            Spacer(modifier = Modifier.height(30.dp))
 
-
-
-            Button(onClick = onCancelar) {
+            Button(onClick = onCancelar,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Laranja,
+                    contentColor = PretoMostarda
+                )) {
                 Text("Cancelar")
             }
 

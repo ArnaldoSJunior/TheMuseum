@@ -1,10 +1,17 @@
 package br.edu.up.themuseum.ui.Screens.MenuScreens.Ingresso
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,6 +28,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import br.edu.up.themuseum.data.Models.Pedidos
 import br.edu.up.themuseum.ui.ViewModel.PedidosViewModel
+import br.edu.up.themuseum.ui.theme.Cinza
+import br.edu.up.themuseum.ui.theme.Laranja
+import br.edu.up.themuseum.ui.theme.PretoMostarda
+import br.edu.up.themuseum.ui.theme.VerdeMenta
 import kotlinx.coroutines.launch
 
 @Composable
@@ -53,6 +64,18 @@ fun IncluirEditarPedidoScreen(
         }
     }
     Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Cinza)
+            .padding(16.dp) ){
+    Card( modifier = Modifier
+        .fillMaxWidth()
+        .padding(13.dp),
+        elevation = CardDefaults.cardElevation(4.dp),
+        shape = RoundedCornerShape(10.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = VerdeMenta)
+    ) {  Column(
         modifier = Modifier.padding(
             top =  90.dp,
             start = 30.dp,
@@ -81,7 +104,7 @@ fun IncluirEditarPedidoScreen(
             onValueChange = { tel = it }
         )
         Button(onClick = {
-            //Serve para disparar o segundo processo
+
             coroutineScope.launch {
                 val pedidoSalvar = Pedidos(
                     id = PedidoId,
@@ -90,23 +113,27 @@ fun IncluirEditarPedidoScreen(
                     tel = tel
                 )
                 viewModel.gravar(pedidoSalvar)
-//                db.afazerDao().gravarAfazer(afazerSalvar)
                 navController.popBackStack()
-                //afazeres = db.afazerDao().listarAfazeres()
-                //navController.navigate("listarAfazeres")
+
             }
-        }) {
+        }
+           , colors = ButtonDefaults.buttonColors(
+                containerColor = Laranja,
+                contentColor = PretoMostarda
+            )) {
             Text(text = "Salvar", fontSize = 30.sp)
         }
-        Button( onClick = onCancelar) {
-            Text(text = "Cancelar", fontSize = 30.sp)
+        Button(onClick = onCancelar,
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Laranja,
+                contentColor = PretoMostarda
+            )) {
+            Text("Cancelar")
         }
 
     }
-
-
-
-
+    }
+}
 
 
 }

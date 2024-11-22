@@ -1,7 +1,9 @@
 package br.edu.up.themuseum.ui.Screens.MenuScreens.Ingresso
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -19,12 +21,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import br.edu.up.themuseum.data.Dao.PedidosDao
 import br.edu.up.themuseum.ui.Screens.Util.BottomBar
 import br.edu.up.themuseum.ui.Screens.Util.TopBarTelas
 import br.edu.up.themuseum.ui.ViewModel.PedidosViewModel
+import br.edu.up.themuseum.ui.theme.Cinza
+import br.edu.up.themuseum.ui.theme.ModakFont
+import br.edu.up.themuseum.ui.theme.Verde
 
 @Composable
 fun TelaIngresso(
@@ -36,7 +42,8 @@ fun TelaIngresso(
         topBar = { TopBarTelas(navController) },
         bottomBar = {BottomBar(navController)},
         content = { paddingValues ->
-            Column(modifier = Modifier.padding(paddingValues)) {
+            Column(modifier = Modifier.fillMaxSize().padding(paddingValues).background(Cinza)) {
+                Text(text = "Ingressos",fontSize = 30.sp, fontFamily = ModakFont,modifier = Modifier.padding(start = 16.dp))
                 CardComFormulario(viewModel,navController,currentScreen)
             }
         }
@@ -49,7 +56,7 @@ fun TelaIngresso(
 fun CardComFormulario(viewModel: PedidosViewModel,navController: NavController, currentScreen: MutableState<String>) {
     var exibirFormulario by remember { mutableStateOf(false) }
 
-    // Card Clicável
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -58,15 +65,15 @@ fun CardComFormulario(viewModel: PedidosViewModel,navController: NavController, 
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFFF5F5F5)
+            containerColor = Verde
         )
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Text(text = "Sábado", fontSize = MaterialTheme.typography.bodyLarge.fontSize)
+        Column(modifier = Modifier.padding(30.dp)) {
+            Text(text = "Festa", fontSize = 28.sp, fontFamily = ModakFont)
         }
     }
 
-    // Formulário exibido ao clicar no Card
+
     if (exibirFormulario) {
         NovosPedidos( navController = navController, viewModel = viewModel ,  onCancelar = { exibirFormulario = false })
     }
